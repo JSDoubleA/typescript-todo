@@ -1,0 +1,158 @@
+:root {
+  --text-color: #292D31;
+  --background-color: #F7F8FA;
+  --background-second-color: #F3f3f3;
+  --foreground-color: #5B6168;
+  --error-color: #d25252;
+  --selection-background: #3A66D150;
+  --selection-foreground: #FFFFFF;
+  --border-color: #DFE1E4;
+  --button-background: #e0dfe4;
+  --button-hover-background: #9d9ca0;
+  --button-background-disabled: #9ba0a3;
+  --green: #22863a;
+  --yellow: #e36209;
+  --blue: #005cc5;
+  --reg: #d73a49;
+  --purple: #6f42c1;
+  --orange: #e36209;
+  --cyan: #032F62;
+  --gray: #6A737D;
+  --black: #24292E;
+  --text-comments-color: #6A737D;
+  --text-numbers-color: #005CC5;
+}
+
+body {
+  background-color: var(--background-second-color);
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.todo {
+  margin: 50px auto;
+  width: 800px;
+
+  .todo-title {
+    margin: 0px 0px 30px 0px;
+    text-align: center;
+    font-size: 50px;
+  }
+
+  .todo-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 20px 30px;
+    background-color: white;
+  }
+
+  .todo-adder-container {
+    margin-bottom: 10px;
+  }
+
+  .todo-list-container {
+    .todo-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      height: 500px;
+      overflow-y: scroll;
+
+      .btn {
+        padding: 5px 10px;
+        min-width: unset;
+      }
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 5px 0;
+        border-radius: 5px;
+        padding: 10px;
+        line-height: 2rem;
+        vertical-align: middle;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--background-second-color);
+        }
+
+        & > span {
+          margin: 0;
+          flex-grow: 2;
+        }
+
+        &.completed > span {
+          text-decoration: line-through;
+        }
+
+        &.completed > span::before {
+          content: '\2714';
+          display: inline-block;
+          margin-right: 10px;
+          color: var(--green);
+        }
+      }
+    }
+  }
+}
+
+.input-container {
+  box-sizing: border-box;
+  display: flex;
+
+  label {
+    align-self: stretch;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  input:focus {
+    outline: 2px solid var(--selection-background);
+  }
+
+  input:not([type=checkbox]) {
+    appearance: none;
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+button.btn {
+  appearance: unset;
+  outline: none;
+  cursor: pointer;
+
+  background-color: var(--button-background);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 10px;
+  min-width: 7rem;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    background-color: var(--button-hover-background);
+    color: white;
+  }
+}
+
+.button-groups {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px 0px;
+  
+  p.item-count {
+    margin: 0;
+  }
+}
