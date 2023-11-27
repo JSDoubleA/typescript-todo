@@ -74,8 +74,6 @@ export default class TodoStore {
   }
 
   remove(ids: TodoData['id'] | TodoData['id'][]) {
-    console.log(ids);
-    console.log(this.datas);
     const removeIds = Array.isArray(ids) ? ids : [ids];
     const removeIndexes = this.datas
       .reduce<number[]>((data, current, currentIndex) => {
@@ -85,6 +83,13 @@ export default class TodoStore {
 
         return data;
       }, []);
+
+    while (removeIndexes.length > 0) {
+      const index = removeIndexes.pop();
+      if (index && index >= 0) {
+        this.datas.splice(index, 1);
+      }
+    }
 
     removeIndexes.forEach((idx) => {
       this.datas.splice(idx, 1);
