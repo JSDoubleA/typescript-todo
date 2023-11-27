@@ -64,13 +64,13 @@ export default class TodoList extends BaseComponent<TodoListState> {
 
     controls.innerHTML = `
       <p class="item-count">
-        <span class="todo-count">${this.state.todos.length}</span> items left
+        남은 항목: <span class="todo-count">${this.state.todos.length}</span>개
       </p>
       <div class="todo-controls">
-        <button class="btn" type="button" data-todo-action="viewAll">All</button>
-        <button class="btn" type="button" data-todo-action="viewActive">Active</button>
-        <button class="btn" type="button" data-todo-action="viewCompleted">Completed</button>
-        <button class="btn" type="button" data-todo-action="clearCompleted">Clear Completed</button>
+        <button class="btn" type="button" data-todo-action="viewAll">전체 보기</button>
+        <button class="btn" type="button" data-todo-action="viewActive">미완료 항목 보기</button>
+        <button class="btn" type="button" data-todo-action="viewCompleted">완료 항목 보기</button>
+        <button class="btn" type="button" data-todo-action="clearCompleted">완료 항목 삭제</button>
       </div>
     `;
 
